@@ -4,7 +4,7 @@
 
 - convert from bgr to rgb  
 - convert from int to double and normalize them (division by 255)  
-- apply shadow mask to preserve shadows ( not used though but can be used )  
+- apply shadow mask to preserve shadows 
   
   
 - ## shadow mask algo -  

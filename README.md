@@ -11,8 +11,8 @@
 	 1. find luminescence (brightness) of the image  
 	2. diffence taken to find spots which are significantly brighter  
 	3. flag is used to mark spots in a binary matrix (0-1 matrix), where shadows might be present  
-	4. apply flood fill, erode and dialation (morphological functions) to remove noise from mask  
-	5. apply gausian filter to smoothen the edges of the mask  
+	4. apply <b>flood fill</b>, <b>erode</b> and ,<b>dialation</b> (morphological functions) to remove noise from mask  
+	5. apply <b>gausian filter</b> to smoothen the edges of the mask  
 return mask  
   
  
@@ -29,14 +29,14 @@ return mask
 		- crop out a square of size of the gaussain filter  
 		- subtract it from the centre pixel, helps in simplyfying code  
 		- find the intensity mask for the cutout (this helps in assigning wieghts for intensities, use standard deviation of s_r)  
-		- make a mask for both no_flash and flash by combining gaussain with intensity weights(normalize it)  
-		- take the mask from flash and apply it on the no_flash cutout to create a joint no_flash mask (flash image contains a much better estimate of the true high-frequency(edges) information than the ambient image)  
-		- now apply flash mask to flash cutout(gives flash_base), do the same for no_flash  
+		- make a mask for both no_flash and flash by <b>combining gaussain with intensity weights</b>(normalize it)  
+		- take the <b>mask from flash and apply it on the no_flash cutout to create a joint no_flash mask</b> (flash image contains a much better estimate of the true high-frequency(edges) information than the ambient image)  
+		- now apply flash mask to <b>flash cutout(gives flash_base), and a no_flash mask to no_flash cutout(no_flash_base, these are bilateral filter operations)</b> 
 		- sum the matrix up and add give the value of the centre pixel  
 	5. return joint_no_flash, flash_base, no_flash_base  
  
  - stack the individual color components for all three of the above and make joint_image, flash_base, and ambient_base
- - dividing flash image by flash_base image, gives us the details or the high frequency parts, do it get flash_details
+ - <b>dividing flash image by flash_base image, gives us the details or the high frequency parts, do it get flash_details</b>
  - ## SUMMARY OF PRODUCTS
 	  1. shadow_mask
 	  2. flash_details

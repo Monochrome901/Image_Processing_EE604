@@ -22,7 +22,7 @@ return mask
   
 - ## bilateral filter algo -  
 	1. define parameters- standard deviations and kernel size  
-(s_s - spatial effect, assigns weights to distances), (s_r - intensity effect, assigns weight to intensity difference, smaller it is, more the edges are preserved), (ws, kernel size)  
+(<b>s_s - spatial effect</b>, assigns weights to distances), (<b>s_r - intensity effect</b>, assigns weight to intensity difference, smaller it is, more the edges are preserved), (ws, kernel size)  
 	2. define a gaussian filter of size ws and std - s_s and pad the images with half the size of filter  
 	3. define three outputs that we require jbf(joint bilateral filter), flash_base and no_flash_base  
 	4. interation over the image - (below tasks are done for both flash and no_flash images)  
